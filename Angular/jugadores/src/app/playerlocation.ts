@@ -2,7 +2,11 @@ export interface PlayerLocation {
    id: number;
   name: string;
   city: string;
-  state: string;
+  country: string;
   photo: string;
+
+  descrip: string;
+
+  equipo: string;
 
 }
