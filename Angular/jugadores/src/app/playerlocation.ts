@@ -1,5 +1,5 @@
-export interface Jugadorlocation {
-  id: number;
+export interface PlayerLocation {
+   id: number;
   name: string;
   city: string;
   state: string;

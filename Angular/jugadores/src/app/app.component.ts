@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
-import { IntroComponent } from './intro/intro.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    IntroComponent
+    HomeComponent,
+    RouterModule
   ],
   template: `
   <main>
-    <header class="brand-name">
-      <img class="brand-logo" src="https://images.vexels.com/media/users/3/132252/isolated/lists/1ec5882de4ed9ca4f7fa27f2251d9d41-soccer-shooting-silhouette.png" alt="logo" aria-hidden="true">
-    </header>
+    <a [routerLink]="['/']">
+      <header class="brand-name">
+        <img class="brand-logo" src="https://images.vexels.com/media/users/3/140291/isolated/lists/b2d32685472a4054e7b78aa7d0a404a2-football-player-hitting-ball.png" alt="logo" aria-hidden="true">
+      </header>
+    </a>
     <section class="content">
-     <app-intro></app-intro>
+      <router-outlet></router-outlet>
     </section>
   </main>
 `,
