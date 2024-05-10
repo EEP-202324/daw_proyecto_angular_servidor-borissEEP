@@ -19,9 +19,10 @@ input[type="text"] {
 button {
   padding: 10px;
   border: solid 1px var(--primary-color);
-  background: var(--primary-color);
+  background: blue;
   color: white;
   border-radius: 8px;
+  margin: 5px;
 }
 
 @media (min-width: 500px) and (max-width: 768px) {
