@@ -1,0 +1,14 @@
+<article>
+  <img class="listing-photo" [src]="formacion?.photo" alt="Exterior photo of {{formacion?.name}}" />
+  <section class="listing-description">
+    <h2 class="listing-heading">{{formacion?.name}}</h2>
+    <p class="listing-location">{{formacion?.city}}, {{formacion?.state}}</p>
+  </section>
+  <section class="listing-features">
+    <h2 class="section-heading">Acerca de esta Formación</h2>
+    <ul>
+      <li>Modalida: {{formacion?.modalidad}}</li><br>
+      <li>Tipo de Formación: </li>
+    </ul>
+  </section>
+</article>
