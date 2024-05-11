@@ -5,13 +5,13 @@
   padding: 0;
   width: 15em;
 }
-
 input {
   display: block;
   width: 100%;
   padding: .5rem;
   margin: 1rem 0;
   box-sizing: border-box;
+  width: 200px;
 }
 
 .heroes li {
@@ -32,7 +32,7 @@ input {
   height: 1.6em;
   border-radius: 4px;
   display: block;
-  width: 100%;
+  width: 200%;
 }
 
 .heroes a:hover {
@@ -77,14 +77,13 @@ button.delete {
   position: absolute;
   left: 210px;
   top: 5px;
-  background-color: white;
-  color:  #525252;
   font-size: 1.1rem;
   margin: 0;
   padding: 1px 10px 3px 10px;
+  margin-left: 200px;
 }
 
 button.delete:hover {
-  background-color: #525252;
-  color: white;
+  background: none;
+  color: red;
 }

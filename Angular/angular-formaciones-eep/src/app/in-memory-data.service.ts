@@ -8,14 +8,14 @@ import { Hero } from './hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Educacion Infantil', modalidad: 'Online', titulacion: 'Grado Medio' },
-      { id: 13, name: 'DAM' , modalidad: 'Dual', titulacion: 'Grado Superior'},
-      { id: 14, name: 'Comercio' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
-      { id: 15, name: 'Dentista' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
+      { id: 12, name: 'Comercio Internacional', modalidad: 'Online', titulacion: 'Grado Medio' },
+      { id: 13, name: 'DAW' , modalidad: 'Dual', titulacion: 'Grado Superior'},
+      { id: 14, name: 'DAM' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
+      { id: 15, name: 'Higiene Bucodental' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
       { id: 16, name: 'Dietética', modalidad: 'Dual', titulacion: 'Grado Superior'},
       { id: 17, name: 'Cuidado y Auxilios de Enfermeria' , modalidad: 'Dual', titulacion: 'Grado Medio'},
       { id: 18, name: 'Administracion y Finanzas' , modalidad: 'Online', titulacion: 'Grado Medio'},
-      { id: 19, name: 'DAW' , modalidad: 'Presencial', titulacion: 'Grado Medio'},
+      { id: 19, name: 'Botanica' , modalidad: 'Presencial', titulacion: 'Grado Medio'},
       { id: 20, name: 'Marketing' , modalidad: 'Online', titulacion: 'Grado Superior'}
     ];
     return {heroes};

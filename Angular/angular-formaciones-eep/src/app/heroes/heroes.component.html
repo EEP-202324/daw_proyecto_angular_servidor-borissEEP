@@ -1,19 +1,24 @@
-<h2>Mis Formaciones</h2>
-
-<div>
-  <label for="new-hero">Formacion name: </label>
-  <input id="new-hero" #heroName />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">Añadir Formacion</button>
-</div>
-
+<h2>Formaciones Disponibles: </h2><br>
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
-    <button type="button" class="delete" title="delete hero"
-      (click)="delete(hero)">Delete</button>
+    <button type="button" class="delete" title="borrar formacion" (click)="delete(hero)">Borrar</button>
   </li>
-</ul>
+</ul><br><br>
+
+<h2>Añade una nueva formacion: </h2>
+<div>
+  <div>
+  <label for="new-hero">Nombre: </label>
+  <input id="new-hero" #heroName />
+  <label for="new-hero-modality">Modalidad: </label>
+  <input id="new-hero-modality" #heroModality />
+  <label for="new-hero-degree">Titulacion: </label>
+  <input id="new-hero-degree" #heroDegree />
+
+  <button type="button" class="add-button" (click)="add(heroName.value, heroModality.value, heroDegree.value); heroName.value=''; heroModality.value=''; heroDegree.value=''">Añadir Formacion</button>
+</div>
+</div>
+
