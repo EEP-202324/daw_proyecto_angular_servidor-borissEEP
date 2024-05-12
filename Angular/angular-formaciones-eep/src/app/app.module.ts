@@ -10,9 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { FormacionDetailComponent } from './formacion-detail/formacion-detail.component';
+import { FormacionesComponent } from './formaciones/formaciones.component';
+import { FormacionSearchComponent } from './formacion-search/formacion-search.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,9 +30,9 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    HeroSearchComponent
+    FormacionesComponent,
+    FormacionDetailComponent,
+    FormacionSearchComponent
   ],
   bootstrap: [ AppComponent ]
 })
