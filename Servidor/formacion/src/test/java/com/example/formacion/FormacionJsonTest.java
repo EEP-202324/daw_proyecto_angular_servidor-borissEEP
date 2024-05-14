@@ -50,19 +50,15 @@ public class FormacionJsonTest {
 	
 	@Test
 	 void formacionDeserializationTest() throws IOException {
-	     String expected = """
-	     		{
-	                "id": 1,
-	     		    "name": "Comercio Internacional",
-	     		    "modalidad": "Online",
-	     			"titulacion": "Grado Medio"
-	            }
-	             """;
-	     Formacion parsedFormacion = json.parseObject(expected);
-	     assertThat(parsedFormacion.getId()).isEqualTo(1);
-	     assertThat(parsedFormacion.getName()).isEqualTo("Comercio Internacional");
-	     assertThat(parsedFormacion.getModalidad()).isEqualTo("Online");
-	     assertThat(parsedFormacion.getTitulacion()).isEqualTo("Grado Medio");
+		String expected="""
+		         [
+		            { "id": 1, "name": "Comercio Internacional", "modalidad": "Online", "titulacion": "Grado Medio" },
+		            { "id": 2, "name": "DAW", "modalidad": "Dual", "titulacion": "Grado Superior" },
+		            { "id": 3, "name": "DAM", "modalidad": "Presencial", "titulacion": "Grado Superior" }
+		         ]
+		         """;
+		
+		assertThat(jsonList.parse(expected)).usingRecursiveComparison().isEqualTo(formaciones);
 	 }
 	
 	@Test
