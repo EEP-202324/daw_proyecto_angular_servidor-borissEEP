@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Comercio Internacional", "modalidad": "Online", "titulacion": "Grado Medio" },
+  { "id": 2, "name": "DAW", "modalidad": "Dual", "titulacion": "Grado Superior" },
+  { "id": 3, "name": "DAM", "modalidad": "Presencial", "titulacion": "Grado Superior"  }
+]

@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
 
+import org.assertj.core.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
@@ -19,12 +21,18 @@ public class FormacionJsonTest {
 	
 	private Formacion[] formaciones;
 	
-	
+	@BeforeEach
+    void setUp() {
+		formaciones = Arrays.array(
+                new Formacion(1L, "Comercio Internacional", "Online", "Grado Medio" ),
+                new Formacion(2L, "DAW", "Dual", "Grado Superior"),
+                new Formacion(3L, "DAM", "Presencial", "Grado Superior"));
+    }
 
 	@Test
     void formacionSerializationTest() throws IOException {
     	Formacion formacion = new Formacion(1L, "Comercio Internacional", "Online", "Grado Medio");
-        assertThat(json.write(formacion)).isStrictlyEqualToJson("/com/example/formacion/expected.json");
+        assertThat(json.write(formacion)).isStrictlyEqualToJson("/com/example/formacion/single.json");
         assertThat(json.write(formacion)).hasJsonPathNumberValue("@.id");
         assertThat(json.write(formacion)).extractingJsonPathNumberValue("@.id")
                 .isEqualTo(1);
@@ -57,5 +65,9 @@ public class FormacionJsonTest {
 	     assertThat(parsedFormacion.getTitulacion()).isEqualTo("Grado Medio");
 	 }
 	
+	@Test
+	void formacionListSerializationTest() throws IOException {
+	   assertThat(jsonList.write(formaciones)).isStrictlyEqualToJson("/com/example/formacion/list.json");
+	}
 	
 }
