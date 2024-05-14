@@ -1,0 +1,1 @@
+INSERT INTO formacion (id, name, modalidad, titulacion) VALUES (1, 'Comercio Internacional', 'Online', 'Grado Medio');

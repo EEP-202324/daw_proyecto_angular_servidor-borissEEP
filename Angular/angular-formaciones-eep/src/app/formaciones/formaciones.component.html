@@ -8,14 +8,14 @@
   </li>
 </ul><br><br>
 
-<h2>Añade una nueva formacion: </h2>
+<h2>Añade una nueva formación: </h2>
 <div>
   <div>
   <label for="new-formacion">Nombre: </label>
   <input id="new-formacion" #formacionName />
   <label for="new-formacion-modalidad">Modalidad: </label>
   <input id="new-formacion-modalidad" #formacionModalidad />
-  <label for="new-formacion-titulacion">Titulacion: </label>
+  <label for="new-formacion-titulacion">Titulación: </label>
   <input id="new-formacion-titulacion" #formacionTitul />
 
   <button type="button" class="add-button" (click)="add(formacionName.value, formacionModalidad.value, formacionTitul.value); formacionName.value=''; formacionModalidad.value=''; formacionTitul.value=''">Añadir Formacion</button>

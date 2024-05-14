@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class FormacionService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private formacionesUrl = 'api/formaciones';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,33 +23,33 @@ export class FormacionService {
 
   /** GET heroes from the server */
   getFormaciones(): Observable<Formacion[]> {
-    return this.http.get<Formacion[]>(this.heroesUrl)
+    return this.http.get<Formacion[]>(this.formacionesUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Formacion[]>('getHeroes', []))
+        tap(_ => this.log('fetched formaciones')),
+        catchError(this.handleError<Formacion[]>('getFormaciones', []))
       );
   }
 
   /** GET hero by id. Return `undefined` when id not found */
   getFormacionNo404<Data>(id: number): Observable<Formacion> {
-    const url = `${this.heroesUrl}/?id=${id}`;
+    const url = `${this.formacionesUrl}/?id=${id}`;
     return this.http.get<Formacion[]>(url)
       .pipe(
-        map(heroes => heroes[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? 'fetched' : 'did not find';
-          this.log(`${outcome} hero id=${id}`);
+        map(formaciones => formaciones[0]), // returns a {0|1} element array
+        tap(f => {
+          const outcome = f ? 'fetched' : 'did not find';
+          this.log(`${outcome} formacion id=${id}`);
         }),
-        catchError(this.handleError<Formacion>(`getHero id=${id}`))
+        catchError(this.handleError<Formacion>(`getFormacion id=${id}`))
       );
   }
 
   /** GET hero by id. Will 404 if id not found */
   getFormacion(id: number): Observable<Formacion> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.formacionesUrl}/${id}`;
     return this.http.get<Formacion>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Formacion>(`getHero id=${id}`))
+      tap(_ => this.log(`fetched formacion id=${id}`)),
+      catchError(this.handleError<Formacion>(`getFormacion id=${id}`))
     );
   }
 
@@ -59,39 +59,39 @@ export class FormacionService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Formacion[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    return this.http.get<Formacion[]>(`${this.formacionesUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
-         this.log(`found heroes matching "${term}"`) :
-         this.log(`no heroes matching "${term}"`)),
-      catchError(this.handleError<Formacion[]>('searchHeroes', []))
+         this.log(`found formaciones matching "${term}"`) :
+         this.log(`no formaciones matching "${term}"`)),
+      catchError(this.handleError<Formacion[]>('searchFormaciones', []))
     );
   }
 
   //////// Save methods //////////
 
   /** POST: add a new hero to the server */
-  addFormacion(hero: Formacion): Observable<Formacion> {
-  return this.http.post<Formacion>(this.heroesUrl, hero, this.httpOptions).pipe(
-    tap((newHero: Formacion) => this.log(`added hero w/ id=${newHero.id}`)),
-    catchError(this.handleError<Formacion>('addHero'))
+  addFormacion(formacion: Formacion): Observable<Formacion> {
+  return this.http.post<Formacion>(this.formacionesUrl, formacion, this.httpOptions).pipe(
+    tap((newFormacion: Formacion) => this.log(`added formacion w/ id=${newFormacion.id}`)),
+    catchError(this.handleError<Formacion>('addFormacion'))
   );
 }
 
   /** DELETE: delete the hero from the server */
   deleteFormacion(id: number): Observable<Formacion> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.formacionesUrl}/${id}`;
 
     return this.http.delete<Formacion>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Formacion>('deleteHero'))
+      tap(_ => this.log(`deleted formacion id=${id}`)),
+      catchError(this.handleError<Formacion>('deleteFormacion'))
     );
   }
 
   /** PUT: update the hero on the server */
-  updateFormacion(hero: Formacion): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
-      catchError(this.handleError<any>('updateHero'))
+  updateFormacion(formacion: Formacion): Observable<any> {
+    return this.http.put(this.formacionesUrl, formacion, this.httpOptions).pipe(
+      tap(_ => this.log(`updated formacion id=${formacion.id}`)),
+      catchError(this.handleError<any>('updateFormacion'))
     );
   }
 

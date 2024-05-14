@@ -7,18 +7,18 @@ import { Formacion } from './formacion';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
-      { id: 12, name: 'Comercio Internacional', modalidad: 'Online', titulacion: 'Grado Medio' },
-      { id: 13, name: 'DAW' , modalidad: 'Dual', titulacion: 'Grado Superior'},
-      { id: 14, name: 'DAM' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
-      { id: 15, name: 'Higiene Bucodental' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
-      { id: 16, name: 'Dietética', modalidad: 'Dual', titulacion: 'Grado Superior'},
-      { id: 17, name: 'Cuidado y Auxilios de Enfermeria' , modalidad: 'Dual', titulacion: 'Grado Medio'},
-      { id: 18, name: 'Administracion y Finanzas' , modalidad: 'Online', titulacion: 'Grado Medio'},
-      { id: 19, name: 'Botanica' , modalidad: 'Presencial', titulacion: 'Grado Medio'},
-      { id: 20, name: 'Marketing' , modalidad: 'Online', titulacion: 'Grado Superior'}
+    const formaciones = [
+      { id: 1, name: 'Comercio Internacional', modalidad: 'Online', titulacion: 'Grado Medio' },
+      { id: 2, name: 'DAW' , modalidad: 'Dual', titulacion: 'Grado Superior'},
+      { id: 3, name: 'DAM' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
+      { id: 4, name: 'Higiene Bucodental' , modalidad: 'Presencial', titulacion: 'Grado Superior'},
+      { id: 5, name: 'Dietética', modalidad: 'Dual', titulacion: 'Grado Superior'},
+      { id: 6, name: 'Cuidado y Auxilios de Enfermeria' , modalidad: 'Dual', titulacion: 'Grado Medio'},
+      { id: 7, name: 'Administracion y Finanzas' , modalidad: 'Online', titulacion: 'Grado Medio'},
+      { id: 8, name: 'Botanica' , modalidad: 'Presencial', titulacion: 'Grado Medio'},
+      { id: 9, name: 'Marketing' , modalidad: 'Online', titulacion: 'Grado Superior'}
     ];
-    return {heroes};
+    return {formaciones};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
