@@ -37,5 +37,5 @@ export class FormacionesComponent implements OnInit {
     this.formaciones = this.formaciones.filter(f => f !== formacion);
     this.formacionService.deleteFormacion(formacion.id).subscribe();
   }
-  
+
 }

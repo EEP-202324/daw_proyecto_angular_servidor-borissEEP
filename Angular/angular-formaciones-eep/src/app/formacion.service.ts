@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class FormacionService {
 
-  private formacionesUrl = 'api/formaciones';  // URL to web api
+  private formacionesUrl = 'http://localhost:8080/formaciones';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -71,11 +71,12 @@ export class FormacionService {
 
   /** POST: add a new hero to the server */
   addFormacion(formacion: Formacion): Observable<Formacion> {
-  return this.http.post<Formacion>(this.formacionesUrl, formacion, this.httpOptions).pipe(
-    tap((newFormacion: Formacion) => this.log(`added formacion w/ id=${newFormacion.id}`)),
-    catchError(this.handleError<Formacion>('addFormacion'))
-  );
+    return this.http.post<Formacion>(this.formacionesUrl, formacion, this.httpOptions).pipe(
+        tap((newFormacion: Formacion) => this.log(`added formacion w/ id=${newFormacion.id}`)),
+        catchError(this.handleError<Formacion>('addFormacion'))
+    );
 }
+
 
   /** DELETE: delete the hero from the server */
   deleteFormacion(id: number): Observable<Formacion> {
