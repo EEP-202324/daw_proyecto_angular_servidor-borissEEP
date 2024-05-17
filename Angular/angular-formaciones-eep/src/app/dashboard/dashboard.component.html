@@ -1,9 +1,9 @@
-<!-- <h2>Top Formaciones</h2>
-<div class="formaciones-menu">
-  <a *ngFor="let formacion of formaciones"
-      routerLink="/detail/{{formacion.id}}">
-      {{formacion.name}}
-  </a>
-</div> -->
 
-<app-formacion-search></app-formacion-search>
+<app-formacion-search></app-formacion-search><br><br><br>
+
+<h2>Top Formaciones</h2>
+<div class="formaciones-menu">
+  <a *ngFor="let formacion of formaciones" routerLink="/detail/{{formacion.id}}">
+    {{formacion.name}}
+  </a>
+</div>

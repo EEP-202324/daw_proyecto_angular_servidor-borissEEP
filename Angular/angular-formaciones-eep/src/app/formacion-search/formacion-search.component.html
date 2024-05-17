@@ -1,6 +1,6 @@
 <div id="search-component">
   <label for="search-box">Buscar Formacion</label>
-  <input placeholder="Filtrar por nombre" #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <input class="input-container" placeholder="Filtrar por nombre" #searchBox id="search-box" (input)="search(searchBox.value)" />
 
   <ul class="search-result">
     <li *ngFor="let formacion of formaciones$ | async" >

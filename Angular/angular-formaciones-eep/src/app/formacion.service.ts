@@ -11,7 +11,9 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class FormacionService {
 
-  private formacionesUrl = 'http://localhost:8080/formaciones';  // URL to web api
+  protected url = 'http://localhost:8080/formaciones'; // URL to web api
+
+
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,7 +25,7 @@ export class FormacionService {
 
   /** GET heroes from the server */
   getFormaciones(): Observable<Formacion[]> {
-    return this.http.get<Formacion[]>(this.formacionesUrl)
+    return this.http.get<Formacion[]>(this.url)
       .pipe(
         tap(_ => this.log('fetched formaciones')),
         catchError(this.handleError<Formacion[]>('getFormaciones', []))
@@ -32,7 +34,7 @@ export class FormacionService {
 
   /** GET hero by id. Return `undefined` when id not found */
   getFormacionNo404<Data>(id: number): Observable<Formacion> {
-    const url = `${this.formacionesUrl}/?id=${id}`;
+    const url = `${this.url}/?id=${id}`;
     return this.http.get<Formacion[]>(url)
       .pipe(
         map(formaciones => formaciones[0]), // returns a {0|1} element array
@@ -46,7 +48,7 @@ export class FormacionService {
 
   /** GET hero by id. Will 404 if id not found */
   getFormacion(id: number): Observable<Formacion> {
-    const url = `${this.formacionesUrl}/${id}`;
+    const url = `${this.url}/${id}`;
     return this.http.get<Formacion>(url).pipe(
       tap(_ => this.log(`fetched formacion id=${id}`)),
       catchError(this.handleError<Formacion>(`getFormacion id=${id}`))
@@ -59,7 +61,7 @@ export class FormacionService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Formacion[]>(`${this.formacionesUrl}/?name=${term}`).pipe(
+    return this.http.get<Formacion[]>(`${this.url}/?name=${term}`).pipe(
       tap(x => x.length ?
          this.log(`found formaciones matching "${term}"`) :
          this.log(`no formaciones matching "${term}"`)),
@@ -70,17 +72,18 @@ export class FormacionService {
   //////// Save methods //////////
 
   /** POST: add a new hero to the server */
-  addFormacion(formacion: Formacion): Observable<Formacion> {
-    return this.http.post<Formacion>(this.formacionesUrl, formacion, this.httpOptions).pipe(
-        tap((newFormacion: Formacion) => this.log(`added formacion w/ id=${newFormacion.id}`)),
-        catchError(this.handleError<Formacion>('addFormacion'))
+  addFormacion(formacion: Formacion): Observable<any> {
+    return this.http.post<Formacion>(this.url, formacion, this.httpOptions).pipe(
+      tap(_ => this.log(`added formacion w/ id=${formacion.id}`)),
+      catchError(this.handleError<any>('addFormacion'))
     );
-}
+  }
+
 
 
   /** DELETE: delete the hero from the server */
   deleteFormacion(id: number): Observable<Formacion> {
-    const url = `${this.formacionesUrl}/${id}`;
+    const url = `${this.url}/${id}`;
 
     return this.http.delete<Formacion>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted formacion id=${id}`)),
@@ -90,7 +93,7 @@ export class FormacionService {
 
   /** PUT: update the hero on the server */
   updateFormacion(formacion: Formacion): Observable<any> {
-    return this.http.put(this.formacionesUrl, formacion, this.httpOptions).pipe(
+    return this.http.put(this.url, formacion, this.httpOptions).pipe(
       tap(_ => this.log(`updated formacion id=${formacion.id}`)),
       catchError(this.handleError<any>('updateFormacion'))
     );
@@ -119,6 +122,7 @@ export class FormacionService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
+    console.log(message)
     this.messageService.add(`HeroService: ${message}`);
   }
 }

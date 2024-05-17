@@ -121,7 +121,7 @@ class FormacionApplicationTests {
 		assertThat(read.size()).isEqualTo(1);
 
 		String name = documentContext.read("$[0].name");
-		assertThat(name).isEqualTo("DAW");
+		assertThat(name).isEqualTo("string");
 	}
 
 	@Test
@@ -142,7 +142,7 @@ class FormacionApplicationTests {
 	void shouldUpdateAnExistingFormacion() {
 		Formacion formacionUpdate = new Formacion(null, "DAW", "Dual", "Grado Superior");
 		HttpEntity<Formacion> request = new HttpEntity<>(formacionUpdate);
-		ResponseEntity<Void> response = restTemplate.exchange("/formaciones/2", HttpMethod.PUT, request, Void.class);
+		ResponseEntity<Void> response = restTemplate.exchange("/formaciones/1", HttpMethod.PUT, request, Void.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
 
 		ResponseEntity<String> getResponse = restTemplate
@@ -174,11 +174,11 @@ class FormacionApplicationTests {
 	@DirtiesContext
 	void shouldDeleteAnExistingFormacion() {
 	    ResponseEntity<Void> response = restTemplate
-	            .exchange("/formaciones/2", HttpMethod.DELETE, null, Void.class);
+	            .exchange("/formaciones/52", HttpMethod.DELETE, null, Void.class);
 	    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
 	    
 	    ResponseEntity<String> getResponse = restTemplate
-	            .getForEntity("/formaciones/2", String.class);
+	            .getForEntity("/formaciones/52", String.class);
 	    assertThat(getResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 	

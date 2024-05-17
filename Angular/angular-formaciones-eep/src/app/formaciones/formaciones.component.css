@@ -12,6 +12,7 @@ input {
   margin: 1rem 0;
   box-sizing: border-box;
   width: 200px;
+
 }
 
 .formaciones li {
@@ -60,6 +61,7 @@ input {
   text-align: center;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
+
 }
 
 .add-button {
@@ -87,3 +89,4 @@ button.delete:hover {
   background: none;
   color: red;
 }
+

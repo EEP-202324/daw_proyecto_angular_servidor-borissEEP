@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/formaciones")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 
 public class FormacionController {
 
@@ -55,26 +55,34 @@ public class FormacionController {
 				pageable.getPageSize(), pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))));
 		return ResponseEntity.ok(page.getContent());
 	}
+//	@GetMapping
+//	private ResponseEntity<Iterable<Formacion>> findAll(){
+//		return ResponseEntity.ok(formacionRepository.findAll());
+//	}
 
 	@PutMapping("/{requestedId}")
-	private ResponseEntity<Void> putFormacion(@PathVariable Long requestedId, @RequestBody Formacion formacionUpdate) {
+	private ResponseEntity<Formacion> putFormacion(@PathVariable Long requestedId,
+			@RequestBody Formacion formacionUpdate) {
 		Optional<Formacion> formacionOptional = formacionRepository.findById(requestedId);
 
 		if (formacionOptional.isPresent()) {
 			Formacion existingFormacion = formacionOptional.get();
 
-			if (!"".equals(formacionUpdate.getName())) {
-				existingFormacion.setName(formacionUpdate.getName());
-			}
-			if (!"".equals(formacionUpdate.getModalidad())) {
-				existingFormacion.setModalidad(formacionUpdate.getModalidad());
-			}
-			if (formacionUpdate.getTitulacion() != null && formacionUpdate.getTitulacion() != "") {
-				existingFormacion.setTitulacion(formacionUpdate.getTitulacion());
-			}
+//			if (!"".equals(formacionUpdate.getName())) {
+//				existingFormacion.setName(formacionUpdate.getName());
+//			}
+//			if (!"".equals(formacionUpdate.getModalidad())) {
+//				existingFormacion.setModalidad(formacionUpdate.getModalidad());
+//			}
+//			if (formacionUpdate.getTitulacion() != null && formacionUpdate.getTitulacion() != "") {
+//				existingFormacion.setTitulacion(formacionUpdate.getTitulacion());
+//			}
+			existingFormacion.setName(formacionUpdate.getName());
+			existingFormacion.setModalidad(formacionUpdate.getModalidad());
+			existingFormacion.setTitulacion(formacionUpdate.getTitulacion());
+			Formacion updateFormacion = formacionRepository.save(existingFormacion);
+			return ResponseEntity.ok(updateFormacion);
 
-			formacionRepository.save(existingFormacion);
-			return ResponseEntity.noContent().build();
 		} else {
 			return ResponseEntity.notFound().build();
 		}

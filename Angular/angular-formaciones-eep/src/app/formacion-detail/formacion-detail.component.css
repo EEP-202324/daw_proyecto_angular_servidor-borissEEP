@@ -15,6 +15,7 @@ button {
   padding: 1rem;
   border-radius: 4px;
   font-size: 1rem;
+  align-items: center;
 }
 
 button:hover {
