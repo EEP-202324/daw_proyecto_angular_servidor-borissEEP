@@ -5,6 +5,9 @@
   padding: 0;
   width: 15em;
 }
+h2{
+  color: #fff;
+}
 input {
   display: block;
   width: 100%;
@@ -23,9 +26,11 @@ input {
 .formaciones li:hover {
   left: .1em;
 }
-
+label{
+  color:#fff
+}
 .formaciones a {
-  color: #333;
+  color: #000;
   text-decoration: none;
   background-color: #EEE;
   margin: .5em;
@@ -49,19 +54,19 @@ input {
 .formaciones .badge {
   display: inline-block;
   font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
-  line-height: 1em;
+  color: #fff;
+  padding: 0.8em 0.9em 0 0.7em;
+  background-color: blue;
+  line-height: .5em;
   position: relative;
   left: -1px;
   top: -4px;
-  height: 1.8em;
+  height: 1.9em;
   min-width: 20px;
   text-align: center;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-
+  width: 1em;
 }
 
 .add-button {

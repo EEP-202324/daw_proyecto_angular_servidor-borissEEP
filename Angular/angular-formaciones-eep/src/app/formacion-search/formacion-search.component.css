@@ -6,6 +6,7 @@ label {
   margin-top: 1rem;
   margin-bottom: .5rem;
   text-align: center;
+  color: #fff;
 }
 
 input {
@@ -35,6 +36,7 @@ li {
   box-sizing: border-box;
   text-decoration: none;
   color: black;
+  background-color: #fff;
 }
 
 .search-result li a:hover {

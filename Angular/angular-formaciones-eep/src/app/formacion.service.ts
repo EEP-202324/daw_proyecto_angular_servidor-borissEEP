@@ -32,6 +32,10 @@ export class FormacionService {
       );
   }
 
+  searchFormaciones(term: string): Observable<any> {
+    return this.http.get<any>(`${this.url}/search?q=${term}`);
+  }
+
   /** GET hero by id. Return `undefined` when id not found */
   getFormacionNo404<Data>(id: number): Observable<Formacion> {
     const url = `${this.url}/?id=${id}`;
@@ -56,18 +60,18 @@ export class FormacionService {
   }
 
   /* GET heroes whose name contains search term */
-  searchFormaciones(term: string): Observable<Formacion[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<Formacion[]>(`${this.url}/?name=${term}`).pipe(
-      tap(x => x.length ?
-         this.log(`found formaciones matching "${term}"`) :
-         this.log(`no formaciones matching "${term}"`)),
-      catchError(this.handleError<Formacion[]>('searchFormaciones', []))
-    );
-  }
+  // searchFormaciones(term: string): Observable<Formacion[]> {
+  //   if (!term.trim()) {
+  //     // if not search term, return empty hero array.
+  //     return of([]);
+  //   }
+  //   return this.http.get<Formacion[]>(`${this.url}/?name=${term}`).pipe(
+  //     tap(x => x.length ?
+  //        this.log(`found formaciones matching "${term}"`) :
+  //        this.log(`no formaciones matching "${term}"`)),
+  //     catchError(this.handleError<Formacion[]>('searchFormaciones', []))
+  //   );
+  // }
 
   //////// Save methods //////////
 
