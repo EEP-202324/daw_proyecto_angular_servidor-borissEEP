@@ -8,41 +8,41 @@ Aplicación inspirada en las formaciones profesionales de la escuela EEPiGroup, 
 
 La aplicación posee 2 pantallas, una en la que muestra la barra de búsqueda y un top de formaciones, y otra donde lista las formaciones y añadir una nueva.
 
-    1. Posee una barra de búsqueda la cual filtra formaciones que el usuario desea buscar.
-    2. Pantalla que permite consultar los datos de una formación.
-    3. Formulario que permite editar los datos.
-    4. Botón de eliminar una formación que el usuario desee.
+1. Posee una barra de búsqueda la cual filtra formaciones que el usuario desea buscar.
+2. Pantalla que permite consultar los datos de una formación.
+3. Formulario que permite editar los datos.
+4. Botón de eliminar una formación que el usuario desee.
 
 #### SPRING:
 
 La aplicación se conecta con una Base de Datos, en este caso MySQL, en la cual se encuentra una tabla formaciones con los siguientes campos: id, name, modalidad, titulacion.
 
-    1. GetMapping que encuentra por Id una formacion y devuelve ok si la encuentra y sino NotFound.
-    2. PostMapping para crear una nueva formación con los datos requeridos.
-    3. GetMapping con método findAll que recupera todas las formaciones con paginación y ordenación.
-    4. GetMapping "search" busca las formaciones con una cadena especifica.
-    5. PutMapping que permite actualizar una formación existente por su ID.
-    6. DeleteMapping que permite eliminar una formación por su ID.
-    7. Me aseguro que todo funciona con SWAGGER.
+1. GetMapping que encuentra por Id una formacion y devuelve ok si la encuentra y sino NotFound.
+2. PostMapping para crear una nueva formación con los datos requeridos.
+3. GetMapping con método findAll que recupera todas las formaciones con paginación y ordenación.
+4. GetMapping "search" busca las formaciones con una cadena especifica.
+5. PutMapping que permite actualizar una formación existente por su ID.
+6. DeleteMapping que permite eliminar una formación por su ID.
+7. Me aseguro que todo funciona con SWAGGER.
 
 ### Puntos de Rúbrica no aplicados:
 
 #### ANGULAR:
 
-    1. Widget y RadioButton para filtrar por modalidad una formación.
-    2. Falta paginación.
-    3. No se añadieron Test Unitarios.
+1. Widget y RadioButton para filtrar por modalidad una formación.
+2. Falta paginación.
+3. No se añadieron Test Unitarios.
 
 #### SPRING:
 
-    1. Tabla adicional con las relaciones (1:N)
-    2. Me faltó modificar los tests por verbo pero funcionan.
+1. Tabla adicional con las relaciones (1:N)
+2. Me faltó modificar los tests por verbo pero funcionan.
 
 #### RESULTADO FINAL:
 
-    1. Comprobamos que la conexión Angular y Spring funciona como debe ser.
-    2. Conexión con MySQL exitosa.
+1. Comprobamos que la conexión Angular y Spring funciona como debe ser.
+2. Conexión con MySQL exitosa.
 
 ### Video Proyecto Final:
 
-    https://eepmad-my.sharepoint.com/:v:/g/personal/balexis-ruiz1_eep-igroup_com/EWmLjh5hvZ9OuMh05NLf04EBXxprbJCGf_fzw-z1t1ll-w?e=eLnf9x
+https://eepmad-my.sharepoint.com/:v:/g/personal/balexis-ruiz1_eep-igroup_com/EWmLjh5hvZ9OuMh05NLf04EBXxprbJCGf_fzw-z1t1ll-w?e=eLnf9x
