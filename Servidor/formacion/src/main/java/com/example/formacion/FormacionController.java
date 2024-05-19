@@ -56,16 +56,12 @@ public class FormacionController {
 				pageable.getPageSize(), pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))));
 		return ResponseEntity.ok(page.getContent());
 	}
-//	@GetMapping
-//	private ResponseEntity<Iterable<Formacion>> findAll(){
-//		return ResponseEntity.ok(formacionRepository.findAll());
-//	}
-	
+
 	@GetMapping("/search")
-    public ResponseEntity<List<Formacion>> searchFormaciones(@RequestParam String q) {
-        List<Formacion> formaciones = formacionRepository.findByNameContainingIgnoreCase(q);
-        return ResponseEntity.ok(formaciones);
-    }
+	public ResponseEntity<List<Formacion>> searchFormaciones(@RequestParam String q) {
+		List<Formacion> formaciones = formacionRepository.findByNameContainingIgnoreCase(q);
+		return ResponseEntity.ok(formaciones);
+	}
 
 	@PutMapping("/{requestedId}")
 	private ResponseEntity<Formacion> putFormacion(@PathVariable Long requestedId,
@@ -75,15 +71,6 @@ public class FormacionController {
 		if (formacionOptional.isPresent()) {
 			Formacion existingFormacion = formacionOptional.get();
 
-//			if (!"".equals(formacionUpdate.getName())) {
-//				existingFormacion.setName(formacionUpdate.getName());
-//			}
-//			if (!"".equals(formacionUpdate.getModalidad())) {
-//				existingFormacion.setModalidad(formacionUpdate.getModalidad());
-//			}
-//			if (formacionUpdate.getTitulacion() != null && formacionUpdate.getTitulacion() != "") {
-//				existingFormacion.setTitulacion(formacionUpdate.getTitulacion());
-//			}
 			existingFormacion.setName(formacionUpdate.getName());
 			existingFormacion.setModalidad(formacionUpdate.getModalidad());
 			existingFormacion.setTitulacion(formacionUpdate.getTitulacion());
@@ -103,5 +90,4 @@ public class FormacionController {
 		formacionRepository.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-
 }
