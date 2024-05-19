@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class FormacionService {
 
-  protected url = 'http://localhost:8080/formaciones'; // URL to web api
+  protected url = 'http://localhost:8080/formaciones';
 
 
 
@@ -23,7 +23,6 @@ export class FormacionService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
   getFormaciones(): Observable<Formacion[]> {
     return this.http.get<Formacion[]>(this.url)
       .pipe(
@@ -36,7 +35,6 @@ export class FormacionService {
     return this.http.get<any>(`${this.url}/search?q=${term}`);
   }
 
-  /** GET hero by id. Return `undefined` when id not found */
   getFormacionNo404<Data>(id: number): Observable<Formacion> {
     const url = `${this.url}/?id=${id}`;
     return this.http.get<Formacion[]>(url)
@@ -50,7 +48,7 @@ export class FormacionService {
       );
   }
 
-  /** GET hero by id. Will 404 if id not found */
+
   getFormacion(id: number): Observable<Formacion> {
     const url = `${this.url}/${id}`;
     return this.http.get<Formacion>(url).pipe(
@@ -59,23 +57,9 @@ export class FormacionService {
     );
   }
 
-  /* GET heroes whose name contains search term */
-  // searchFormaciones(term: string): Observable<Formacion[]> {
-  //   if (!term.trim()) {
-  //     // if not search term, return empty hero array.
-  //     return of([]);
-  //   }
-  //   return this.http.get<Formacion[]>(`${this.url}/?name=${term}`).pipe(
-  //     tap(x => x.length ?
-  //        this.log(`found formaciones matching "${term}"`) :
-  //        this.log(`no formaciones matching "${term}"`)),
-  //     catchError(this.handleError<Formacion[]>('searchFormaciones', []))
-  //   );
-  // }
 
-  //////// Save methods //////////
 
-  /** POST: add a new hero to the server */
+
   addFormacion(formacion: Formacion): Observable<any> {
     return this.http.post<Formacion>(this.url, formacion, this.httpOptions).pipe(
       tap(_ => this.log(`added formacion w/ id=${formacion.id}`)),
@@ -85,7 +69,6 @@ export class FormacionService {
 
 
 
-  /** DELETE: delete the hero from the server */
   deleteFormacion(id: number): Observable<Formacion> {
     const url = `${this.url}/${id}`;
 
@@ -124,7 +107,7 @@ export class FormacionService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  
   private log(message: string) {
     console.log(message)
     this.messageService.add(`HeroService: ${message}`);
