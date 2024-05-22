@@ -1,0 +1,14 @@
+<div *ngIf="formacion">
+  <h2>Detalles de {{formacion.name | uppercase}}</h2>
+  <div><span>id: </span>{{formacion.id}}</div><br>
+  <div>
+    <label for="formacion-modalidad">Modalidad: </label>
+    <input id="formacion-modalidad" [(ngModel)]="formacion.modalidad" placeholder="Cambiar modalidad">
+  <br><br>
+    <label for="formacion-name">Formacion: </label>
+    <input id="formacion-name" [(ngModel)]="formacion.name" placeholder="Nombre de la formación"/>
+  </div><br><br>
+  <div><span>Titulación: </span>{{formacion.titulacion}}</div><br><br>
+  <button type="button" (click)="goBack()">Regresar</button>
+  <button type="button" (click)="save()">Guardar</button>
+</div>
